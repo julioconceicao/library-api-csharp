@@ -2,13 +2,18 @@ using LibraryProject.Domain.AutoMapper;
 using LibraryProject.Domain.Handlers.HandlerCommands;
 using LibraryProject.Domain.Interfaces;
 using LibraryProject.Domain.Interfaces.Implementations;
+using LibraryProject.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<LibraryDBContext>
-    (opt => opt.UseMySQL
-         ("Data Source=localhost;DataBase=LIBRARYAPI;Uid=root;Pwd:semps4naNH#"));
+
+string mySqlConnection =
+              builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContextPool<LibraryDBContext>(opt =>
+                opt.UseMySql(mySqlConnection,
+                        ServerVersion.AutoDetect(mySqlConnection)));
 
 
 builder.Services.AddAutoMapper(typeof(DomainProfileCore));
