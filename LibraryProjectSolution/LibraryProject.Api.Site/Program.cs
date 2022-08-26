@@ -19,7 +19,7 @@ builder.Services.AddDbContextPool<LibraryDBContext>(opt =>
 builder.Services.AddAutoMapper(typeof(DomainProfileCore));
 
 builder.Services.AddScoped<IBookCommand, CreateBookHandler>();
-builder.Services.AddScoped<IBookService, BookServices>();
+builder.Services.AddScoped<IBookServices, BookServices>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 builder.Services.AddControllers();
