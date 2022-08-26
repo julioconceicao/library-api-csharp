@@ -13,10 +13,12 @@ namespace LibraryProject.Api.Site.Controllers
     public class BookController : ControllerBase
     {
         private readonly IBookCommand _book;
+        private readonly IBookServices _service;
 
-        public BookController(IBookCommand book)
+        public BookController(IBookCommand book, IBookServices service)
         {
             _book = book;
+            _service = service;
         }
 
         [HttpPost("/CreateBook")]
@@ -30,6 +32,20 @@ namespace LibraryProject.Api.Site.Controllers
             catch
             {
                 return BadRequest();
+            }
+        }
+
+        [HttpGet("id/{Id}")]
+        public async Task<ActionResult> FindBookById([FromRoute] Guid Id)
+        {
+            try
+            {
+                var response = await _service.FindById(Id);
+                return Ok(response);
+            }
+            catch
+            {
+                return NotFound();
             }
         }
     }
