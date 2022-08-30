@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using LibraryProject.Domain.Responses;
 using LibraryProject.Infrastructure;
 
-namespace LibraryProject.Domain.Interfaces
+namespace LibraryProject.Domain.Services
 {
-    public interface IBookService
+    public interface IBookServices
     {
-        Task<CreateBookResponse> CreateBookAsync(BookModel book);
+        Task<BookResponse> Add(BookModel book);
+        Task<BookResponse> FindById(Guid id);
     }
 }

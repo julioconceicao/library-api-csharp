@@ -19,7 +19,7 @@ namespace LibraryProject.Domain.AutoMapper
         public void ClientMap()
         {
             CreateMap<CreateBookRequest, BookModel>();
-            CreateMap<BookModel, CreateBookResponse>();
+            CreateMap<BookModel, BookResponse>();
         }
 
     }

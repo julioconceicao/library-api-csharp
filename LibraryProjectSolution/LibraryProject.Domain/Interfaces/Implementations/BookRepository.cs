@@ -12,20 +12,6 @@ namespace LibraryProject.Domain.Interfaces.Implementations
             _context = context;
         }
 
-        // public async Task CreateBookAsync(BookModel book)
-        // {
-        //     await _context.Books.AddAsync(new BookModel
-        //     {
-        //         Title = book.Title,
-        //         Author = book.Author,
-        //         Genre = book.Genre,
-        //         Year = book.Year,
-        //         PagesNumber = book.PagesNumber,
-        //         BookLanguage = book.BookLanguage
-        //     });
-        //     await _context.SaveChangesAsync();
-        // }
-
         public async Task Add(BookModel entity)
         {
             await _context.Books.AddAsync(new BookModel

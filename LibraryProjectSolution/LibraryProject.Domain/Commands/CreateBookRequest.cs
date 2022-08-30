@@ -7,7 +7,7 @@ using MediatR;
 
 namespace LibraryProject.Domain.Commands
 {
-    public class CreateBookRequest : IRequest<CreateBookResponse>
+    public class CreateBookRequest : IRequest<BookResponse>
     {
         public string? Title { get; set; }
         public string? Author { get; set; }
