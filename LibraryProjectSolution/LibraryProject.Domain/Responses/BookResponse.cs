@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LibraryProject.Domain.Responses
 {
-    public class CreateBookResponse
+    public class BookResponse
     {
         public Guid Id { get; set; }
         public string? Title { get; set; }

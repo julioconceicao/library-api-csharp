@@ -9,6 +9,6 @@ namespace LibraryProject.Domain.Interfaces
 {
     public interface IBookCommand
     {
-        Task<CreateBookResponse> CreateBookAsync(CreateBookRequest Book);
+        Task<BookResponse> CreateBookAsync(CreateBookRequest Book);
     }
 }
