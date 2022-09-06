@@ -11,5 +11,8 @@ namespace LibraryProject.Domain.Services
     {
         Task<BookResponse> Add(BookModel book);
         Task<BookResponse> FindById(Guid id);
+        Task <BookResponse> FindByTitle(string title);
+
+        Task<BookResponse> FindByLanguage(string bookLanguage);
     }
 }
