@@ -49,5 +49,19 @@ namespace LibraryProject.Api.Site.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet("title/{Title}")]
+        public async Task<ActionResult> FindBookByTitle([FromRoute] string Title)
+        {
+            try
+            {
+                var response = await _service.FindByTitle(Title);
+                return Ok(response);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }
