@@ -63,5 +63,19 @@ namespace LibraryProject.Api.Site.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet("bookLanguage/{BookLanguage}")]
+        public async Task<ActionResult> FindBookByLanguage([FromRoute] string BookLanguage)
+        {
+            try
+            {
+                var response = await _service.FindByLanguage(BookLanguage);
+                return Ok(response);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
     }
 }
