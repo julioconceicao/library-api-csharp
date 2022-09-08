@@ -4,7 +4,11 @@ using LibraryProject.Domain.Interfaces;
 using LibraryProject.Domain.Interfaces.Implementations;
 using LibraryProject.Domain.Services;
 using LibraryProject.Infrastructure;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 

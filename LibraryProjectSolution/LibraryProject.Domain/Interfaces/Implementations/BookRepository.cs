@@ -17,11 +17,13 @@ namespace LibraryProject.Domain.Interfaces.Implementations
             await _context.Books.AddAsync(new BookModel
             {
                 Title = entity.Title,
+                Author = entity.Author,
                 Genre = entity.Genre,
                 Year = entity.Year,
                 PagesNumber = entity.PagesNumber,
                 BookLanguage = entity.BookLanguage
             });
+            await _context.SaveChangesAsync();
         }
 
         public async Task<BookModel> FindById(Guid id)
