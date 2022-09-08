@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Domain/LibraryProject.Domain.csproj": {}
+  },
+  "projects": {
+    "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Domain/LibraryProject.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Domain/LibraryProject.Domain.csproj",
+        "projectName": "LibraryProject.Domain",
+        "projectPath": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Domain/LibraryProject.Domain.csproj",
+        "packagesPath": "/home/novahaus/.nuget/packages/",
+        "outputPath": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/novahaus/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Infrastructure/LibraryProject.Infrastructure.csproj": {
+                "projectPath": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Infrastructure/LibraryProject.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.108/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Infrastructure/LibraryProject.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Infrastructure/LibraryProject.Infrastructure.csproj",
+        "projectName": "LibraryProject.Infrastructure",
+        "projectPath": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Infrastructure/LibraryProject.Infrastructure.csproj",
+        "packagesPath": "/home/novahaus/.nuget/packages/",
+        "outputPath": "/home/novahaus/Documents/repositories/library-api-csharp/LibraryProjectSolution/LibraryProject.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/novahaus/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.108/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
