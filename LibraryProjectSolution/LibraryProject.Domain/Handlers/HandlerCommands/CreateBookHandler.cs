@@ -9,20 +9,23 @@ namespace LibraryProject.Domain.Handlers.HandlerCommands
 {
     public class CreateBookHandler : IBookCommand
     {
-        protected readonly IBookServices _bookServices;
+        protected readonly IBookServices _bookService;
 
         protected readonly IMapper _mapper;
 
-        public CreateBookHandler(IBookServices bookServices, IMapper mapper)
+        public CreateBookHandler(IBookServices bookService, IMapper mapper)
         {
-            _bookServices = bookServices;
+            _bookService = bookService;
             _mapper = mapper;
         }
 
         public async Task<BookResponse> CreateBookAsync(CreateBookRequest request)
         {
             var bookModel = _mapper.Map<BookModel>(request);
-            return await _bookServices.Add(bookModel);
+            return await _bookService.Add(bookModel);
+
         }
+
+
     }
 }

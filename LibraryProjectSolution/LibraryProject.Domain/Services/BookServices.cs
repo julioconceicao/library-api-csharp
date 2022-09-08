@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using LibraryProject.Domain.Interfaces;
 using LibraryProject.Domain.Responses;
@@ -30,5 +26,31 @@ namespace LibraryProject.Domain.Services
             var response = _mapper.Map<BookResponse>(await _bookRepository.FindById(id));
             return response;
         }
+
+        public async Task<BookResponse> FindByLanguage(string bookLanguage)
+        {
+            var response = _mapper.Map<BookResponse>(await _bookRepository.FindByLanguage(bookLanguage));
+
+            if (response == null)
+            {
+                throw new Exception("Could not find any book in this language.");
+            }
+
+            return response;
+        }
+
+        public async Task<BookResponse> FindByTitle(string title)
+        {
+            var response = _mapper.Map<BookResponse>(await _bookRepository.FindByTitle(title));
+
+            if (response == null)
+            {
+                throw new Exception("Couldn't find this title.");
+            }
+
+            return response;
+        }
+
+
     }
 }

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace LibraryProject.Domain.Interfaces.GenericInterfaces
 {
     public interface IRepository <T>
@@ -12,5 +7,7 @@ namespace LibraryProject.Domain.Interfaces.GenericInterfaces
         Task Update(T entity);
 
         Task <T> FindById (Guid id);
+        Task <T> FindByTitle (string title);
+        Task <T> FindByLanguage (string bookLanguage);    
     }
 }

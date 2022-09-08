@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using LibraryProject.Domain.Commands;
 using LibraryProject.Domain.Interfaces;
@@ -42,6 +40,34 @@ namespace LibraryProject.Api.Site.Controllers
             try
             {
                 var response = await _service.FindById(Id);
+                return Ok(response);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("title/{Title}")]
+        public async Task<ActionResult> FindBookByTitle([FromRoute] string Title)
+        {
+            try
+            {
+                var response = await _service.FindByTitle(Title);
+                return Ok(response);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet("bookLanguage/{BookLanguage}")]
+        public async Task<ActionResult> FindBookByLanguage([FromRoute] string BookLanguage)
+        {
+            try
+            {
+                var response = await _service.FindByLanguage(BookLanguage);
                 return Ok(response);
             }
             catch

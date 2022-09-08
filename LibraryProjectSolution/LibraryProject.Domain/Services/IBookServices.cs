@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LibraryProject.Domain.Responses;
 using LibraryProject.Infrastructure;
 
@@ -11,5 +7,8 @@ namespace LibraryProject.Domain.Services
     {
         Task<BookResponse> Add(BookModel book);
         Task<BookResponse> FindById(Guid id);
+        Task <BookResponse> FindByTitle(string title);
+
+        Task<BookResponse> FindByLanguage(string bookLanguage);
     }
 }

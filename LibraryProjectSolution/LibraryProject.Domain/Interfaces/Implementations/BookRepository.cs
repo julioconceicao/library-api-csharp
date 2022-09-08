@@ -41,5 +41,17 @@ namespace LibraryProject.Domain.Interfaces.Implementations
         {
             throw new NotImplementedException();
         }
+
+        public async Task<BookModel> FindByTitle(string title)
+        {
+            return await _context.Books
+                .FirstOrDefaultAsync(b => b.Title == title);
+        }
+
+        public async Task<BookModel> FindByLanguage(string bookLanguage)
+        {
+            return await _context.Books
+                .FirstOrDefaultAsync(b => b.BookLanguage == bookLanguage);
+        }
     }
 }
