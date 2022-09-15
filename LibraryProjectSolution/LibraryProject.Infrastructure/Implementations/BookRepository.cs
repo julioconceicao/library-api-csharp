@@ -52,8 +52,8 @@ namespace LibraryProject.Infrastructure.Implementations
         public async Task<IEnumerable<BookModel>> FindByLanguage(string bookLanguage)
         {
             return await _context.Books
-                .Where(b => b. == bookLanguage);
+            .Where(b => b.BookLanguage.Contains(bookLanguage))
+                .ToListAsync();
         }
-
     }
 }
