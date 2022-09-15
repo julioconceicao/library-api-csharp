@@ -1,33 +1,42 @@
 using AutoMapper;
+using MediatR;
 using LibraryProject.Core;
 using LibraryProject.Domain.Interfaces;
 using LibraryProject.Domain.Queries;
 using LibraryProject.Domain.Responses;
-using MediatR;
 
 namespace LibraryProject.Domain.Handlers.QueriesHandler
 {
-    public class GetBookByLanguageHandler : IRequestHandler<GetBookByLanguageQuery, BookResponse>
+    public class GetBookByLanguageHandler : IRequestHandler<GetBookByLanguageQuery, IEnumerable<BookResponse>>
     {
         private readonly IBookRepository _bookRepository;
         private readonly IMapper _mapper;
 
-        public GetBookByLanguageHandler(IBookRepository bookRepository, IMapper mapper)
+        public GetBookByLanguageHandler(
+        IBookRepository bookRepository, 
+        IMapper mapper
+        )
         {
             _bookRepository = bookRepository;
             _mapper = mapper;
         }
 
-        public async Task<BookResponse> Handle(GetBookByLanguageQuery request, CancellationToken cancellationToken)
+        /// <summary>
+        /// Method for searching books by language
+        /// </summary>
+        /// <param name="request.BookLanguage">language book (string)</param>
+        // <returns>List of books or Exception notfound</returns>
+        public async Task<IEnumerable<BookResponse>> Handle(GetBookByLanguageQuery request, CancellationToken cancellationToken)
         {
-            BookModel book = await _bookRepository.FindByLanguage(request.Language);
-            if (book == null)
+            IEnumerable<BookModel> books = await _bookRepository.FindByLanguage(request.BookLanguage);
+            
+            if (books is null)
             {
-                throw new DllNotFoundException($"There isn't any book in {request.Language}. ");
+                throw new Exception($"There isn't any book in {request.BookLanguage}. ");
             }
 
             return await Task.FromResult(
-                _mapper.Map<BookResponse>(book)
+                _mapper.Map<IEnumerable<BookResponse>>(books)
             );
         }
     }
