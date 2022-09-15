@@ -1,8 +1,7 @@
 using LibraryProject.Domain.AutoMapper;
 using LibraryProject.Domain.Handlers.HandlerCommands;
 using LibraryProject.Domain.Interfaces;
-using LibraryProject.Domain.Interfaces.Implementations;
-using LibraryProject.Domain.Services;
+using LibraryProject.Infrastructure.Implementations;
 using LibraryProject.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +22,6 @@ builder.Services.AddDbContextPool<LibraryDBContext>(opt =>
 
 builder.Services.AddAutoMapper(typeof(DomainProfileCore));
 
-builder.Services.AddScoped<IBookCommand, CreateBookHandler>();
-builder.Services.AddScoped<IBookServices, BookServices>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 builder.Services.AddControllers();

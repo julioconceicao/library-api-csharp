@@ -8,6 +8,6 @@ namespace LibraryProject.Domain.Interfaces.GenericInterfaces
 
         Task <T> FindById (Guid id);
         Task <T> FindByTitle (string title);
-        Task <T> FindByLanguage (string bookLanguage);    
+        Task <IEnumerable<T>> FindByLanguage (string bookLanguage);    
     }
 }
