@@ -1,13 +1,9 @@
-using LibraryProject.Domain.AutoMapper;
-using LibraryProject.Domain.Handlers.HandlerCommands;
-using LibraryProject.Domain.Interfaces;
-using LibraryProject.Infrastructure.Implementations;
-using LibraryProject.Infrastructure;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using MediatR;
+using LibraryProject.Domain.AutoMapper;
+using LibraryProject.Domain.Interfaces;
+using LibraryProject.Infrastructure;
+using LibraryProject.Infrastructure.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +17,7 @@ builder.Services.AddDbContextPool<LibraryDBContext>(opt =>
 
 
 builder.Services.AddAutoMapper(typeof(DomainProfileCore));
-
+builder.Services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 builder.Services.AddControllers();
