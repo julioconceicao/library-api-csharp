@@ -1,19 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LibraryProject.Domain.Responses;
 using MediatR;
 
 namespace LibraryProject.Domain.Queries
 {
-    public class GetBookByLanguageQuery : IRequest<BookResponse>
+    public class GetBookByLanguageQuery : IRequest<IEnumerable<BookResponse>>
     {
-        public string Language { get; set; }
+        public string BookLanguage { get; set; }
 
-        public GetBookByLanguageQuery(string language)
+        public GetBookByLanguageQuery(string bookLanguage)
         {
-            Language = language;
+            BookLanguage = bookLanguage;
         }
     }
 }
