@@ -13,9 +13,9 @@ namespace LibraryProject.Domain.Handlers.HandlerCommands
 
         protected readonly IMapper _mapper;
 
-        public CreateBookHandler(IBookRepository _bookRepository, IMapper mapper)
+        public CreateBookHandler(IBookRepository bookRepository, IMapper mapper)
         {
-            _bookRepository = _bookRepository;
+            _bookRepository = bookRepository;
             _mapper = mapper;
         }
 
