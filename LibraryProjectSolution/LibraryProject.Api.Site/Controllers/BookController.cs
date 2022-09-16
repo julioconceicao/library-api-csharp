@@ -21,7 +21,29 @@ namespace LibraryProject.Api.Site.Controllers
         [HttpPost("/CreateBook")]
         public async Task<ActionResult> CreateBook([FromBody] CreateBookRequest request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await _mediator.Send(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("/DeletBook/{Id}")]
+        public async Task<ActionResult> DeleteBook([FromRoute] DeleteBookRequest request)
+        {
+            try
+            {
+                var result = await _mediator.Send(request);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpGet("id/{Id}")]
@@ -46,11 +68,11 @@ namespace LibraryProject.Api.Site.Controllers
         {
             try
             {
-                var query  = new GetBookByLanguageQuery(BookLanguage);
+                var query = new GetBookByLanguageQuery(BookLanguage);
                 var result = await _mediator.Send(query);
                 return Ok(result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return NotFound(ex.Message);
             }
