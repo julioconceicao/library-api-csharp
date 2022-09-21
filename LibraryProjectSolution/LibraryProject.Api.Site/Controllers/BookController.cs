@@ -32,7 +32,7 @@ namespace LibraryProject.Api.Site.Controllers
             }
         }
 
-        [HttpDelete("/DeletBook/{Id}")]
+        [HttpDelete("/DeleteBook/{Id}")]
         public async Task<ActionResult> DeleteBook([FromRoute] DeleteBookRequest request)
         {
             try
@@ -47,15 +47,33 @@ namespace LibraryProject.Api.Site.Controllers
         }
 
         [HttpGet("id/{Id}")]
-        public async Task<ActionResult> FindBookById([FromRoute] Guid Id)
+        public async Task<ActionResult> FindBookById([FromRoute] Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = new GetBookByIdQuery(id);
+                var result = await _mediator.Send(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
-        [HttpGet("title/{Title}")]
-        public async Task<ActionResult> FindBookByTitle([FromRoute] string Title)
+        [HttpGet("Title/{Title}")]
+        public async Task<ActionResult> FindBookByTitle([FromRoute] string title)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = new GetBookByTitleQuery(title);
+                var result = await _mediator.Send(query);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         /// <summary>

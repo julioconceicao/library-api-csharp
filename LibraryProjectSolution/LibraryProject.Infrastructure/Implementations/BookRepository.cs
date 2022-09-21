@@ -33,14 +33,23 @@ namespace LibraryProject.Infrastructure.Implementations
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        public Task Update(BookModel entity)
+        public async Task Update(BookModel entity)
         {
-            throw new NotImplementedException();
+            var Book = await FindById(entity.Id);
+            Book.Title = entity.Title;
+            Book.Author = entity.Author;
+            Book.Genre = entity.Genre;
+            Book.Year = entity.Year;
+            Book.PagesNumber = entity.PagesNumber;
+            Book.BookLanguage = entity.BookLanguage;
+            _context.Books.Update(Book);
+            await _context.SaveChangesAsync();
         }
 
-        public Task Delete(BookModel entity)
+        public async Task Delete(Guid id)
         {
-            throw new NotImplementedException();
+            _context.Remove(await FindById(id));
+            await _context.SaveChangesAsync();
         }
 
         public async Task<BookModel> FindByTitle(string title)
